@@ -2,9 +2,11 @@ package org.example.spring_meuble.service;
 
 import org.example.spring_meuble.dao.CartItemRepository;
 import org.example.spring_meuble.entity.CartItem;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class CartItemService {
     private CartItemRepository cartItemRepository;
 

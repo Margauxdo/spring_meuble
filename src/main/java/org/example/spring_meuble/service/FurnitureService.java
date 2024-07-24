@@ -2,9 +2,11 @@ package org.example.spring_meuble.service;
 
 import org.example.spring_meuble.dao.FurnitureRepository;
 import org.example.spring_meuble.entity.Furniture;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class FurnitureService {
 
     private final FurnitureRepository furnitureRepository;

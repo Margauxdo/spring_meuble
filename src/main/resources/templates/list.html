@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
+    <title>homepage</title>
+</head>
+<body>
+<header>
+    <h1>la Fête du meuble !!</h1>
+</header>
+<main>
+    <table  th:if="${!furnitures.isEmpty()}">
+        <thead>
+        <tr>
+            <th >#</th>
+            <th >Nom</th>
+            <th >Description</th>
+            <th >Prix</th>
+            <th >Stock</th>
+            <th ></th>
+            <th ></th>
+            <th ></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="f : ${furnitures}">
+            <td  th:text="${f.getId()}"></td>
+            <td  th:text="${f.getName()}"></td>
+            <td  th:text="${f.getDescription()}"></td>
+            <td  th:text="${f.getPrice()}"></td>
+            <td  th:text="${f.getStock()}"></td>
+            <td ><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter au panier</a></button></td>
+            <td ><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Modifier</a></button></td>
+            <td ><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Supprimer</a></button></td>
+        </tr>
+        </tbody>
+    </table>
+    <p th:unless="${!furnitures.isEmpty()}">vous n'avez ajouté aucun meuble !!</p>
+    <span class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter</a></button></span>
+
+</main>
+</body>
+</html>
