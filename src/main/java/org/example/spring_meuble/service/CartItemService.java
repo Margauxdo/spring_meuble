@@ -17,16 +17,16 @@ public class CartItemService {
     public List<CartItem> getAllCartItems() {
         return cartItemRepository.findAll();
     }
-    public CartItem getCartItemById(int id) {
+    public CartItem getCartItemById(long id) {
         return cartItemRepository.findById(id).orElse(null);
     }
-    public CartItem saveCartItem(CartItem cartItem) {
+    public CartItem addToCart(CartItem cartItem) {
         return cartItemRepository.save(cartItem);
     }
-    public CartItem updateCartItem(CartItem cartItem) {
+    public CartItem removeFromCart(CartItem cartItem) {
         return cartItemRepository.save(cartItem);
     }
-    public void deleteCartItem(CartItem cartItem) {
+    public void clearCart(CartItem cartItem) {
         cartItemRepository.delete(cartItem);
     }
 }

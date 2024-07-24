@@ -15,19 +15,22 @@ public class FurnitureService {
         this.furnitureRepository = furnitureRepository;
     }
    public List<Furniture> getAllFurnitures() {
+
         return furnitureRepository.findAll();
    }
-   public Furniture getFurnitureById(int id) {
+   public Furniture getFurnitureById(long id) {
+
         return furnitureRepository.findById(id).orElse(null);
    }
-   public Furniture createFurniture(Furniture furniture) {
+   public Furniture saveFurniture(Furniture furniture) {
+
         return furnitureRepository.save(furniture);
    }
    public Furniture updateFurniture(Furniture furniture) {
         return furnitureRepository.save(furniture);
 
    }
-   public void deleteFurniture(int id) {
+   public void deleteFurniture(long id) {
         furnitureRepository.deleteById(id);
    }
 

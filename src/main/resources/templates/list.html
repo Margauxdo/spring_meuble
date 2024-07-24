@@ -29,14 +29,14 @@
             <td  th:text="${f.getDescription()}"></td>
             <td  th:text="${f.getPrice()}"></td>
             <td  th:text="${f.getStock()}"></td>
-            <td ><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter au panier</a></button></td>
-            <td ><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Modifier</a></button></td>
-            <td ><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Supprimer</a></button></td>
+            <td ><button type="button" ><a th:href="@{/}" >Ajouter au panier</a></button></td>
+            <td ><button type="button" ><a th:href="@{/updatefurniture/{id}(id=${f.getId()})}" >Modifier</a></button></td>
+            <td ><button type="button" ><a th:href="@{deleteFurniture/{id}(id=${f.getId()})}" >Supprimer</a></button></td>
         </tr>
         </tbody>
     </table>
     <p th:unless="${!furnitures.isEmpty()}">vous n'avez ajouté aucun meuble !!</p>
-    <span class="p-3 mb-2 bg-black text-white"><button type="button" class="btn btn-danger opacity-75"><a th:href="@{/}" class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover link-offset-2 link-underline link-underline-opacity-0">Ajouter</a></button></span>
+    <span ><button type="button" ><a th:href="@{/addfurniture}" >Ajouter un meuble</a></button></span>
 
 </main>
 </body>

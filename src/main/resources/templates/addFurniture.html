@@ -13,18 +13,25 @@
         <div>
             <label for="name">Name</label>
             <input type="text" th:field="*{name}" id="name">
+            <span th:if="${#fields.hasErrors()}" th:errors="*{name}"></span>
         </div>
         <div>
             <label for="description">Description</label>
             <input type="text" th:field="*{description}" id="description">
+            <span th:if="${#fields.hasErrors()}" th:errors="*{description}"></span>
+
         </div>
         <div>
             <label for="price">Price</label>
             <input type="text" th:field="*{price}" id="price">
+            <span th:if="${#fields.hasErrors()}" th:errors="*{price}"></span>
+
         </div>
         <div>
-            <label for="stock">Stock</label>
+            <label for="stock">Quantité</label>
             <input type="text" th:field="*{stock}" id="stock">
+            <span th:if="${#fields.hasErrors()}" th:errors="*{stock}"></span>
+
         </div>
         <button type="submit">Ajouter</button>
     </form>
