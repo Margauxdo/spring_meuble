@@ -9,6 +9,7 @@
     <h1>la Fête du meuble !!</h1>
 </header>
 <main>
+    <h2>liste de vos produits favoris</h2>
     <table  th:if="${!furnitures.isEmpty()}">
         <thead>
         <tr>
@@ -29,7 +30,7 @@
             <td  th:text="${f.getDescription()}"></td>
             <td  th:text="${f.getPrice()}"></td>
             <td  th:text="${f.getStock()}"></td>
-            <td ><button type="button" ><a th:href="@{/}" >Ajouter au panier</a></button></td>
+            <td ><button type="button" ><a th:href="@{/addcart}" >Ajouter au panier</a></button></td>
             <td ><button type="button" ><a th:href="@{/updatefurniture/{id}(id=${f.getId()})}" >Modifier</a></button></td>
             <td ><button type="button" ><a th:href="@{deleteFurniture/{id}(id=${f.getId()})}" >Supprimer</a></button></td>
         </tr>

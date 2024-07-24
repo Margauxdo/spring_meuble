@@ -12,6 +12,7 @@ public class FurnitureService {
     private final FurnitureRepository furnitureRepository;
 
     public FurnitureService(FurnitureRepository furnitureRepository) {
+
         this.furnitureRepository = furnitureRepository;
     }
    public List<Furniture> getAllFurnitures() {
