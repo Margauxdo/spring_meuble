@@ -20,7 +20,7 @@ public class Furniture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "furniture_id")
-    private long id;
+    private int id;
     @NotNull(message = "cet élément doit être rempli")
     @NotBlank
     @Column(name = "name_furniture")

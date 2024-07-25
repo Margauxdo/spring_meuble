@@ -19,7 +19,7 @@ public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cartItem_id")
-    private long id;
+    private int id;
     @ManyToOne
     private Furniture furniture;
     @NotBlank

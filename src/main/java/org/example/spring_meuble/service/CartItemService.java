@@ -19,7 +19,7 @@ public class CartItemService {
     public List<CartItem> getAllCartItems() {
         return cartItemRepository.findAll();
     }
-    public CartItem getCartItemById(long id) {
+    public CartItem getCartItemById(int id) {
         return cartItemRepository.findById(id).orElse(null);
     }
     public CartItem addToCart(CartItem cartItem) {

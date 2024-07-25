@@ -11,6 +11,7 @@
 <main>
     <h2>Ajouter un produit</h2>
     <form th:action="@{/addfurniture}" th:object="${furniture}" method="post">
+        <input th:field="*{id}" type="hidden">
         <div>
             <label for="name">Name</label>
             <input type="text" th:field="*{name}" id="name">

@@ -19,7 +19,7 @@ public class FurnitureService {
 
         return furnitureRepository.findAll();
    }
-   public Furniture getFurnitureById(long id) {
+   public Furniture getFurnitureById(int id) {
 
         return furnitureRepository.findById(id).orElse(null);
    }
@@ -27,11 +27,11 @@ public class FurnitureService {
 
         return furnitureRepository.save(furniture);
    }
-   public Furniture updateFurniture(Furniture furniture) {
+   public Furniture updateFurniture(int id, Furniture furniture) {
         return furnitureRepository.save(furniture);
 
    }
-   public void deleteFurniture(long id) {
+   public void deleteFurniture(int id) {
         furnitureRepository.deleteById(id);
    }
 
