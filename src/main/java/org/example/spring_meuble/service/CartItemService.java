@@ -44,17 +44,24 @@ public class CartItemService {
         //augmenter le stock dans la page produit
         //recup article et verif il soit pas null
         if (cartItem != null) {
-            //recup objet furniture
+
             Furniture furniture = cartItem.getFurniture();
             furniture.setStock(furniture.getStock()+1);
             furnitureService.saveFurniture(furniture);
-            cartItemRepository.delete(cartItem);
+            cartItemRepository.deleteById(id);
 
         }
     }
     public void clearCart() {
 
-        cartItemRepository.deleteAll();
+       List<CartItem> cartItems = getAllCartItems();
+       for (CartItem cartItem : cartItems) {
+           Furniture furniture = cartItem.getFurniture();
+
+           furniture.setStock(furniture.getStock()+1);
+           furnitureService.saveFurniture(furniture);
+       }
+       cartItemRepository.deleteAll();
     }
 
 }
