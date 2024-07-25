@@ -22,7 +22,6 @@ public class CartItem {
     private int id;
     @ManyToOne
     private Furniture furniture;
-    @NotBlank
     @Min(1)
     private int quantity;
 }

@@ -31,7 +31,7 @@ public class CartItemService {
     public void clearCart(CartItem cartItem) {
         cartItemRepository.delete(cartItem);
     }
-    public List<Furniture> getAllFurnitures() {
-        return furnitureService.getAllFurnitures();
-    }
+//    public List<Furniture> getAllFurnitures() {
+//        return furnitureService.getAllFurnitures();
+//    }
 }
