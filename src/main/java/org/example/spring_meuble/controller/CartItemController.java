@@ -45,6 +45,7 @@ public class CartItemController {
             CartItem cartItem = new CartItem();
             cartItem.setFurniture(furniture);
             cartItem.setQuantity(1);
+            
 
             //ajout du produit au panier via service
             cartItemService.addToCart(cartItem);

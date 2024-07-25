@@ -4,6 +4,7 @@ import org.example.spring_meuble.dao.CartItemRepository;
 import org.example.spring_meuble.entity.CartItem;
 import org.example.spring_meuble.entity.Furniture;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -23,17 +24,37 @@ public class CartItemService {
         return cartItemRepository.findById(id).orElse(null);
     }
     public CartItem addToCart(CartItem cartItem) {
-        return cartItemRepository.save(cartItem);
+        //reduire le stock du produit qui a été retiré du panier
+        Furniture furniture = cartItem.getFurniture();
+        if (furniture.getStock()>0){
+            //reduit le stock
+            furniture.setStock(furniture.getStock()-1);
+            //enregistre le nouveau stock
+            furnitureService.saveFurniture(furniture);
+            return cartItemRepository.save(cartItem);
+        }else{
+            throw new RuntimeException("Stock insuffisant" +furniture.getName());
+        }
+
+
     }
     public void removeFromCart(int id) {
 
-        cartItemRepository.deleteById(id);
+        CartItem cartItem = getCartItemById(id);
+        //augmenter le stock dans la page produit
+        //recup article et verif il soit pas null
+        if (cartItem != null) {
+            //recup objet furniture
+            Furniture furniture = cartItem.getFurniture();
+            furniture.setStock(furniture.getStock()+1);
+            furnitureService.saveFurniture(furniture);
+            cartItemRepository.delete(cartItem);
+
+        }
     }
     public void clearCart() {
 
         cartItemRepository.deleteAll();
     }
-//    public List<Furniture> getAllFurnitures() {
-//        return furnitureService.getAllFurnitures();
-//    }
+
 }
