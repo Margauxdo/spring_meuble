@@ -60,19 +60,21 @@ public class CartItemController {
         return "cartItem";
 
     }
-//    @GetMapping("/addcart/{id}")
-//    public String addCart( @PathVariable int id) {
-//        cartItemService.addToCart(id);
-//
-//    }
+
 
 
 ;
 
-   @GetMapping("/deletecart/{id}")
-    public String deleteCart(@PathVariable("id") CartItem cartItem) {
-        cartItemService.clearCart(cartItem);
-        return "redirect:/cartItem";
+   @GetMapping("/removecart/{id}")
+    public String removeCart(@PathVariable("id") int id) {
+       System.out.println("test");
+        cartItemService.removeFromCart(id);
+        return "redirect:/listcart";
+   }
+   @GetMapping("/clearcart")
+    public String clearCart() {
+       cartItemService.clearCart();
+       return "redirect:/listcart";
    }
 
 

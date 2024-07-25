@@ -29,13 +29,13 @@
             <td  th:text="${c.getFurniture()}"></td>
             <td  th:text="${c.getQuantity()}"></td>
 
-            <td ><button type="button" ><a th:href="@{/deletecart/{id}(id=${c.getId()})}" >Supprimer</a></button></td>
+            <td ><button type="button" ><a th:href="@{/removecart/{id}(id=${c.getId()})}" >Supprimer</a></button></td>
 
         </tr>
         </tbody>
     </table>
     <p th:unless="${!cartItems.isEmpty()}">Votre panier est vide !!</p>
-    <span ><button type="button" ><a th:href="@{/}" >Vider le panier</a></button></span>
+    <span ><button type="button" ><a th:href="@{/clearcart}" >Vider le panier</a></button></span>
 
 </main>
 

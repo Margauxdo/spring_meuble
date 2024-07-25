@@ -25,11 +25,13 @@ public class CartItemService {
     public CartItem addToCart(CartItem cartItem) {
         return cartItemRepository.save(cartItem);
     }
-    public CartItem removeFromCart(CartItem cartItem) {
-        return cartItemRepository.save(cartItem);
+    public void removeFromCart(int id) {
+
+        cartItemRepository.deleteById(id);
     }
-    public void clearCart(CartItem cartItem) {
-        cartItemRepository.delete(cartItem);
+    public void clearCart() {
+
+        cartItemRepository.deleteAll();
     }
 //    public List<Furniture> getAllFurnitures() {
 //        return furnitureService.getAllFurnitures();
